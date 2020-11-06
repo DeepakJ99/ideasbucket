@@ -78,13 +78,9 @@ app.post('/submitIdea',async (req,res)=>{
     const idea = new Idea(req.body)
     try{
         await idea.save()
-        res.render('dashboard',{
-            alert:"<script> alert('Idea submitted successfully')</script>"
-        })
+        res.redirect('/dashboard')
     }catch(e){
-        res.render('dashboard',{
-            alert:"<script> alert('Idea not submitted!')</script>"
-        })
+        res.redirect('/dashboard')
     }
     
 })
