@@ -1,0 +1,139 @@
+body{
+    margin:0;
+    overflow: hidden;
+}
+#main{
+    background-color: darkslategrey;
+    display: flex;
+    position: fixed;
+    
+    --crimson:#db0050;
+    --blue:#3e69de;
+    --sky:#128ecc;
+    --parrot:#0da813;
+    --orange:#d44604;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    font-family: Ubuntu;
+    width:100vw;
+    background-image: url("../img/bg-hero.jpg");
+    background-size: cover;
+}
+.hero-quote{
+    position:absolute;
+    top:15vh;
+    width:100vw;
+    font-size: 20px;
+    font-family: Pacifico;
+    display: flex;
+    justify-content: center;
+    color:white;
+}
+.hero-quote div{
+    width:50%;
+font-size:27px;
+}
+
+.middle-form{
+    display: grid;
+    height: 40vh;
+    width:30vw; 
+    grid-template-rows: 50% 50%;
+    border-radius: 10px;
+    font-family: inherit;
+    overflow: hidden;
+    min-width: fit-content;
+}
+.middle-form input[type=text], input[type=password]{
+    font-size:20px;
+    margin:1%;
+    padding:10px 20px;
+    text-decoration: none;
+    border-radius: 10px;;
+    border:transparent;
+    color:white;
+    font-family: Ubuntu;
+    background-color: rgba(0,0,0,0.5);            
+}
+.middle-form input[type=text]:focus, input[type=password]:focus{
+    background-color: white;
+    color:var(--crimson);
+}
+.middle-form  input[type=password]:focus{
+    color:var(--sky);
+}
+.middle-form input[type=submit]{
+    font-size:20px;
+    cursor: pointer;
+    background-color: transparent;
+    padding:10px 20px;
+    border-radius: 10px;
+    opacity: 0.7;;
+    color:white;
+    border-color:white;
+}
+.middle-form input[type=submit]:hover{
+    opacity: 1;
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.5);
+    transition: 0.2s ease;
+}
+@media only screen and (orientation:portrait){
+ .hero-quote{
+    
+     top:4vh;
+
+ }
+ .hero-quote div{
+     width:70%;
+     line-height: 140%;
+     font-size: 22px;;
+ }   
+}
+.loader-overlay{
+    height:100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-image:linear-gradient(39deg,#ff5460,#4a74ff)
+}
+.loader-18 {
+    position: relative;
+    z-index: 1001;
+}
+.loader-18:before, .loader-18:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: white;
+    top: 0;
+    left: 0;
+    animation: 1s loader-18 linear infinite;
+}
+.loader-18:before {
+    width: 50px;
+    height:50px;
+}
+.loader-18:after {
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    left: 10px;
+    animation-direction: reverse;
+}
+@keyframes loader-18 {
+    0% {
+        transform: rotate(0deg);
+   }
+    100% {
+        transform: rotate(360deg);
+   }
+}

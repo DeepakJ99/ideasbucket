@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href = "./css/index.css" rel = "stylesheet">
+</head>
+<body>
+    <div class = "loader-overlay" id = "loader-overlay">
+        <div class = "loader-18"></div>
+    </div>
+    <div id = "main">
+        <div class="hero-quote">
+            <div>
+                "Daring Ideas Are Like Chessmen Moved Forward: They May Be Beaten, But They May Start A Winning Game." <p style= "font-size: 20px; text-align:right;color:grey"> -Johann Wolfgang Von Goethe</p>
+            </div>
+        </div>
+        <form method = "POST" id = "login-form" class = "middle-form" action = "login">
+        <div style = "display: flex; flex-direction:column; justify-content: center;align-items:center">
+            <input type = "text" name = "username">
+            <input type = "password" name = "password">
+        </div>
+        <div style = "display: flex;justify-content:center;align-items:center">
+            <input type = "submit" value = "Login">
+        </div>
+        </form>
+        {{{alert}}}
+    </div>
+    
+    
+</body>
+<script>
+setTimeout(()=>{
+    document.getElementById('loader-overlay').style.display="none";
+},3000)
+</script>
+
+</html>
