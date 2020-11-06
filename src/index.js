@@ -28,22 +28,22 @@ app.get('/',(req,res)=>{
     res.render('home')
 })
 
-// app.get('/register',(req,res)=>{
-//     res.render('register')
-// })
-// app.post('/register',async (req,res)=>{
-//     console.log(req.body)
-//     const user = new User(req.body)
-//     console.log(user)
-//     try{
-//         await user.save()
-//         console.log('Registered')
-//         res.send('registered')
-//     }
-//     catch(e){
-//         res.send('not registered')
-//     }
-// })
+app.get('/register',(req,res)=>{
+    res.render('register')
+})
+app.post('/register',async (req,res)=>{
+    console.log(req.body)
+    const user = new User(req.body)
+    console.log(user)
+    try{
+        await user.save()
+        console.log('Registered')
+        res.send('registered')
+    }
+    catch(e){
+        res.send('not registered')
+    }
+})
 
 app.get('/login',(req,res)=>{
     res.redirect('/')
