@@ -1,7 +1,8 @@
 const { mongo } = require("mongoose")
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/ideasbucket',{
+var url = process.env.MONGOLAB_URI;
+mongoose.connect(url,{
     useNewUrlParser : true,
     userCreateIndex : true
 })
