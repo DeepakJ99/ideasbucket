@@ -4,6 +4,11 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 
+/*
+user has following fields 
+username: String, required
+password : String, required
+*/
 const userSchema = new mongoose.Schema({
     username: {
         type:String,
@@ -23,12 +28,14 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+// method to generate authentication token for a user when he tries to login
 userSchema.methods.generateAuthToken = async function(){
     const user = this
     const token = jwt.sign({_id : user._id.toString()}, 'random string')
     return token
 }
 
+//method to find a user by credentials {username, password}
 userSchema.statics.findByCredentials = async(username,password)=>{
     const user = await User.findOne({username})
     if(!user){
@@ -45,6 +52,7 @@ userSchema.statics.findByCredentials = async(username,password)=>{
 
 }
 
+//method to update a user whenever his password is modified
 userSchema.pre('save',async function(next){
     const user = this
     if(user.isModified('password')){

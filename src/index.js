@@ -13,14 +13,12 @@ require('./db/mongoose.js')
 const cookieParser = require('cookie-parser')
 var app = express()
 
-
-app.use(cookieParser())
-app.use(express.json())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended : true}))
-
-app.use(express.static(public))
-app.set('view engine','hbs')
+app.use(cookieParser()) //for parsing cookies, while deploying jwts
+app.use(express.json()) // for parsing json data
+app.use(bodyParser.json()) //for parsing form-data
+app.use(bodyParser.urlencoded({extended : true})) 
+app.use(express.static(public)) //for using static files
+app.set('view engine','hbs') //view engine : handlebars
 app.set('views',viewsPath)
 
 
@@ -95,5 +93,5 @@ app.get('/fetchIdeas',auth,async(req,res)=>{
     }
 })
 app.listen(PORT, ()=>{
-    console.log("Server is up and running at "+PORT)
+    //console.log("Server is up and running at "+PORT)
 })

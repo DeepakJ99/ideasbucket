@@ -1,5 +1,13 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
+
+/*
+idea has following fields:
+title : String, required
+Description : String
+github link : String, required
+lastModified : Date, required, auto-generated
+*/
 const ideaSchema = new mongoose.Schema({
     title: {
         type:String,
